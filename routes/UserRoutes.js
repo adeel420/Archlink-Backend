@@ -187,4 +187,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.put("/update/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { role } = req.body;
+    const newData = await User.findByIdAndUpdate(id, { role }, { new: true });
+    const response = await newData.save();
+    res.status(200).json(response);
+  } catch (err) {
+    console.error("Login Data Error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;

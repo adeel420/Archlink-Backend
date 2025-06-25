@@ -25,6 +25,10 @@ app.use("/job", jobApplicantRoutes);
 app.use("/contact", contactRoutes);
 app.use("/quote", qouteRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
 app.listen(PORT, () => {
   console.log(`Listening the port ${PORT}`);
 });
