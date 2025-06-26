@@ -24,7 +24,7 @@ exports.create = async (req, res) => {
     const response = await data.save();
 
     await transporter.sendMail({
-      from: `Archlink Technology <${email || "no-reply@archlinktech.com"}>`,
+      from: `Archlink Technology <${"adeelimran467@gmail.com"}>`,
       to: "adeelimran467@gmail.com",
       subject: "New Quote Request",
       html: `
