@@ -4,7 +4,15 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const db = require("./db");
 const passport = require("./middleware/auth");
+app.use(express.json());
 const cors = require("cors");
+
+const corsOptions = {
+  origin: "*", // allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Files
@@ -14,7 +22,6 @@ const contactRoutes = require("./routes/contactRoutes");
 const qouteRoutes = require("./routes/quoteRoutes");
 
 // Packages
-app.use(cors());
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 8080;
 app.use(passport.initialize());
