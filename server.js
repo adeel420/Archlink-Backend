@@ -8,7 +8,7 @@ const cors = require("cors");
 
 // ✅ CORS config — allow dev and production frontend
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
+  origin: "*",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 };
