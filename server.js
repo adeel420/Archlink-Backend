@@ -5,6 +5,7 @@ require("dotenv").config();
 const db = require("./db");
 const passport = require("./middleware/auth");
 const cors = require("cors");
+app.use(express.json());
 
 // Files
 const userRoutes = require("./routes/UserRoutes");
