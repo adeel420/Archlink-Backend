@@ -12,7 +12,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// ✅ Handle preflight requests manually (this was missing!)
 app.options("*", cors(corsOptions));
 
 app.use(express.json());
@@ -27,12 +26,14 @@ const userRoutes = require("./routes/UserRoutes");
 const jobApplicantRoutes = require("./routes/jobApplicantRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const quoteRoutes = require("./routes/quoteRoutes");
+const meetingRoutes = require("./routes/meetingRoutes");
 
 // Use routes
 app.use("/user", userRoutes);
 app.use("/job", jobApplicantRoutes);
 app.use("/contact", contactRoutes);
 app.use("/quote", quoteRoutes);
+app.use("/meeting", meetingRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from backend");
